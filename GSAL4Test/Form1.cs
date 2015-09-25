@@ -53,7 +53,7 @@ namespace GSAL4Test
             pictureRect.Width = this.pictureBox1.Width;
             pictureRect.Height = this.pictureBox1.Height;
 
-            int[] disband = { 1,2,3 };//disband的Length属性控制显示的类型，为1的话显示灰度文件
+            int[] disband = { 4,3,2 };//disband的Length属性控制显示的类型，为1的话显示灰度文件
                                       //如disband = { 1 }表示显示1波段的灰度文件
                                       //disband = { 1，2，3 }Length属性为3则为1，2，3波段RGB合成
             int rasterCount = ds.RasterCount;
@@ -198,6 +198,12 @@ namespace GSAL4Test
         private void btn_resample_Click(object sender, EventArgs e)
         {
             ReSampleForm icf = new ReSampleForm();
+            icf.ShowDialog();
+        }
+
+        private void btn_VICalculation_Click(object sender, EventArgs e)
+        {
+            VICalculationForm icf =new VICalculationForm();
             icf.ShowDialog();
         }
     }

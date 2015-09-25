@@ -32,20 +32,21 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_clp = new System.Windows.Forms.Button();
             this.btn_resample = new System.Windows.Forms.Button();
+            this.btn_VICalculation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(63, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 51);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(769, 376);
+            this.pictureBox1.Size = new System.Drawing.Size(543, 373);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1095, 580);
+            this.button1.Location = new System.Drawing.Point(243, 448);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -73,11 +74,22 @@
             this.btn_resample.UseVisualStyleBackColor = true;
             this.btn_resample.Click += new System.EventHandler(this.btn_resample_Click);
             // 
+            // btn_VICalculation
+            // 
+            this.btn_VICalculation.Location = new System.Drawing.Point(217, 22);
+            this.btn_VICalculation.Name = "btn_VICalculation";
+            this.btn_VICalculation.Size = new System.Drawing.Size(101, 23);
+            this.btn_VICalculation.TabIndex = 4;
+            this.btn_VICalculation.Text = "植被指数计算";
+            this.btn_VICalculation.UseVisualStyleBackColor = true;
+            this.btn_VICalculation.Click += new System.EventHandler(this.btn_VICalculation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 615);
+            this.ClientSize = new System.Drawing.Size(646, 489);
+            this.Controls.Add(this.btn_VICalculation);
             this.Controls.Add(this.btn_resample);
             this.Controls.Add(this.btn_clp);
             this.Controls.Add(this.button1);
@@ -97,6 +109,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_clp;
         private System.Windows.Forms.Button btn_resample;
+        private System.Windows.Forms.Button btn_VICalculation;
     }
 }
 
