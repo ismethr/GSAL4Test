@@ -53,7 +53,7 @@ namespace GSAL4Test
             pictureRect.Width = this.pictureBox1.Width;
             pictureRect.Height = this.pictureBox1.Height;
 
-            int[] disband = { 4,3,2 };//disband的Length属性控制显示的类型，为1的话显示灰度文件
+            int[] disband = { 1,2,3h };//disband的Length属性控制显示的类型，为1的话显示灰度文件
                                       //如disband = { 1 }表示显示1波段的灰度文件
                                       //disband = { 1，2，3 }Length属性为3则为1，2，3波段RGB合成
             int rasterCount = ds.RasterCount;
@@ -114,51 +114,51 @@ namespace GSAL4Test
             Bitmap bitmap = new Bitmap(BufferWidth, BufferHeight,
                                      System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
-            if (bandlist.Length == 3)     //RGB显示
-            {
+            //if (bandlist.Length == 3)     //RGB显示
+            //{
                 
-                int[] r = new int[BufferWidth * BufferHeight];
-                Band band1 = ds.GetRasterBand(bandlist[0]);
-                band1.ReadRaster(0, 0, imgWidth, imgHeight, r, BufferWidth, BufferHeight, 0, 0);  //读取图像到内存
+            //    int[] r = new int[BufferWidth * BufferHeight];
+            //    Band band1 = ds.GetRasterBand(bandlist[0]);
+            //    band1.ReadRaster(0, 0, imgWidth, imgHeight, r, BufferWidth, BufferHeight, 0, 0);  //读取图像到内存
 
-                //为了显示好看，进行最大最小值拉伸显示
-                double[] maxandmin1 = { 0, 0 };
-                band1.ComputeRasterMinMax(maxandmin1, 0);
+            //    //为了显示好看，进行最大最小值拉伸显示
+            //    double[] maxandmin1 = { 0, 0 };
+            //    band1.ComputeRasterMinMax(maxandmin1, 0);
 
-                int[] g = new int[BufferWidth * BufferHeight];
-                Band band2 = ds.GetRasterBand(bandlist[1]);
-                band2.ReadRaster(0, 0, imgWidth, imgHeight, g, BufferWidth, BufferHeight, 0, 0);
+            //    int[] g = new int[BufferWidth * BufferHeight];
+            //    Band band2 = ds.GetRasterBand(bandlist[1]);
+            //    band2.ReadRaster(0, 0, imgWidth, imgHeight, g, BufferWidth, BufferHeight, 0, 0);
 
-                double[] maxandmin2 = { 0, 0 };
-                band2.ComputeRasterMinMax(maxandmin2, 0);
+            //    double[] maxandmin2 = { 0, 0 };
+            //    band2.ComputeRasterMinMax(maxandmin2, 0);
 
-                int[] b = new int[BufferWidth * BufferHeight];
-                Band band3 = ds.GetRasterBand(bandlist[2]);
-                band3.ReadRaster(0, 0, imgWidth, imgHeight, b, BufferWidth, BufferHeight, 0, 0);
+            //    int[] b = new int[BufferWidth * BufferHeight];
+            //    Band band3 = ds.GetRasterBand(bandlist[2]);
+            //    band3.ReadRaster(0, 0, imgWidth, imgHeight, b, BufferWidth, BufferHeight, 0, 0);
 
-                double[] maxandmin3 = { 0, 0 };
-                band3.ComputeRasterMinMax(maxandmin3, 0);
+            //    double[] maxandmin3 = { 0, 0 };
+            //    band3.ComputeRasterMinMax(maxandmin3, 0);
 
-                int i, j;
-                for (i = 0; i < BufferWidth; i++)
-                {
-                    for (j = 0; j < BufferHeight; j++)
-                    {
-                        int rVal = Convert.ToInt32(r[i + j * BufferWidth]);
-                        rVal = (int)((rVal - maxandmin1[0]) / (maxandmin1[1] - maxandmin1[0]) * 255);
+            //    int i, j;
+            //    for (i = 0; i < BufferWidth; i++)
+            //    {
+            //        for (j = 0; j < BufferHeight; j++)
+            //        {
+            //            int rVal = Convert.ToInt32(r[i + j * BufferWidth]);
+            //            rVal = (int)((rVal - maxandmin1[0]) / (maxandmin1[1] - maxandmin1[0]) * 255);
 
-                        int gVal = Convert.ToInt32(g[i + j * BufferWidth]);
-                        gVal = (int)((gVal - maxandmin2[0]) / (maxandmin2[1] - maxandmin2[0]) * 255);
+            //            int gVal = Convert.ToInt32(g[i + j * BufferWidth]);
+            //            gVal = (int)((gVal - maxandmin2[0]) / (maxandmin2[1] - maxandmin2[0]) * 255);
 
-                        int bVal = Convert.ToInt32(b[i + j * BufferWidth]);
-                        bVal = (int)((bVal - maxandmin3[0]) / (maxandmin3[1] - maxandmin3[0]) * 255);
+            //            int bVal = Convert.ToInt32(b[i + j * BufferWidth]);
+            //            bVal = (int)((bVal - maxandmin3[0]) / (maxandmin3[1] - maxandmin3[0]) * 255);
 
-                        Color newColor = Color.FromArgb(rVal, gVal, bVal);
-                        bitmap.SetPixel(i, j, newColor);
-                    }
-                }
-            }
-            else               //灰度显示
+            //            Color newColor = Color.FromArgb(rVal, gVal, bVal);
+            //            bitmap.SetPixel(i, j, newColor);
+            //        }
+            //    }
+            //}
+            //else               //灰度显示
             {
                 int[] r = new int[BufferWidth * BufferHeight];
                 Band band1 = ds.GetRasterBand(bandlist[0]);
